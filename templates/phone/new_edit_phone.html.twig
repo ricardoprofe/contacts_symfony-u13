@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="centered">Contacts App</h1>
+
+    {%  if phone == null %}
+        <h2>{{ action }}</h2>
+    {%  else %}
+        <main class="contact">
+            <h2> {{ action }} </h2>
+            <ul>
+                <li><strong>Contact:</strong> {{ contact.name }} {{ contact.surname }} </li>
+                <li><strong>Type:</strong> {{ phone.type }}</li>
+                <li><strong>Number:</strong> {{ phone.number }} </li>
+            </ul>
+            <p>
+                <a href="{{ path('single_contact', { id: contact.id }) }}">Return to contact {{ contact.name }} {{ contact.surname }} </a>
+                <a href="{{ path('contact_list') }}">Return to contact list</a>
+                <a href="{{ path('app_main_page') }}">Return to main page</a>
+            </p>
+        </main>
+
+    {% endif %}
+
+{% endblock %}
